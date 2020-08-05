@@ -137,6 +137,21 @@ function genReadContent(text) {
     return content
 }
 
+function copyMemos(){
+    let ta = $("<textarea></textarea");
+    let val = ''
+    for (const key in memos){
+        if (memos[key].length > 0){
+            val += ['**', key, '** ', memos[key], '\n'].join('')
+        }
+    }
+    ta.val(val)
+    $('body').append(ta)
+    ta.get(0).select()
+    document.execCommand('copy')
+    ta.remove()
+}
+
 $(() => {
 
 
@@ -222,12 +237,25 @@ $(() => {
     })
 
     $('#btn-hide').click(() => {
-        $('#btn-load-new-text').removeClass('d-none')
         $('#btn-load-new-text').show()
     })
 
     $('#btn-load-new-text').click((e) => {
         $(e.target).hide()
     })
+
+    $('#word-memo').click((e) => {
+        e.stopPropagation()
+    })
+
+    $('#this-word').click((e) => {
+        e.stopPropagation()
+    })
+
+    $("#btn-copy-memos").click((e) => {
+        e.stopPropagation();
+        copyMemos()
+    })
+    
 
 });
