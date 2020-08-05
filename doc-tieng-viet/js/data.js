@@ -14,6 +14,6 @@ function saveChanges(){
         }
     }
     if (changed){
-        download(JSON.stringify(memoDict), 'memodict.json', 'text/plain');
+        download(JSON.stringify(memoDict), 'memos.json', 'text/plain');
     }
 }
