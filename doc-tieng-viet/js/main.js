@@ -17,9 +17,9 @@ var thisMemo = ''
 
 function changeCase(c) {
     let word = $("#this-word").val()
-    if (c == 'capitalize'){
+    if (c == 'capitalize') {
         word = capitalize(word)
-    } else if (c == 'lower'){
+    } else if (c == 'lower') {
         word = lower(word)
     }
     $("#this-word").val(word)
@@ -47,11 +47,11 @@ function updateMemo() {
     let word = $("#this-word").val()
     let memo = $("#word-memo").val()
     if (memo != thisMemo) {
-        if (memo.length == 0){
+        if (memo.length == 0) {
             console.log(memo)
-            if (word in memoDict){
+            if (word in memoDict) {
                 memos[word] = memo;
-            } else if (word in memos){
+            } else if (word in memos) {
                 delete memos[word]
             }
         } else {
@@ -65,8 +65,8 @@ function updateMemo() {
 function updateMemoDisplay(word, memo) {
     dd = $("#memo-list dd[data-word='" + word + "']")
     if (dd.length > 0) {
-        if (memo.length == 0){
-            if (word in memos){
+        if (memo.length == 0) {
+            if (word in memos) {
                 dd.text("Memo Deleted.")
             } else {
                 dd.prev().remove()
@@ -137,11 +137,11 @@ function genReadContent(text) {
     return content
 }
 
-function copyMemos(){
+function copyMemos() {
     let ta = $("<textarea></textarea");
     let val = ''
-    for (const key in memos){
-        if (memos[key].length > 0){
+    for (const key in memos) {
+        if (memos[key].length > 0) {
             val += ['**', key, '** ', memos[key], '\n'].join('')
         }
     }
@@ -256,6 +256,6 @@ $(() => {
         e.stopPropagation();
         copyMemos()
     })
-    
+
 
 });
