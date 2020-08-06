@@ -48,13 +48,75 @@ header {
     color:black;
 }
 
-.btn-primary {
-    background-color: salmon;
-    border-color: salmon;
+.btn {
+    outline: none!important;;
+    box-shadow: none!important;;
 }
 
+
+
+.btn-primary {
+    background-color: salmon!important;
+    border-color: salmon!important;
+}
+
+.btn-primary:active {
+    background-color: rgb(238, 102, 87)!important;
+    border-color: rgb(238, 102, 87)!important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(238, 102, 87)!important;
+    border-color: rgb(238, 102, 87)!important;
+}
+
+.btn-primary:active:hover {
+    background-color: rgb(238, 102, 87)!important;
+    border-color: rgb(238, 102, 87)!important;
+}
+
+.btn-primary:focus {
+    background-color: rgb(238, 102, 87)!important;
+    border-color: rgb(238, 102, 87)!important;
+}
+
+.btn-primary:active:focus {
+    background-color: rgb(238, 102, 87)!important;
+    border-color: rgb(238, 102, 87)!important;
+}
+
+
 .btn-outline-primary {
-    /* background-color: salmon; */
-    color: hotpink;
+    color: hotpink!important;
+    border-color: hotpink!important;
+}
+
+.btn-outline-primary:active {
+    background-color: hotpink!important;
+    color: white!important;
+    border-color: hotpink!important;
+}
+
+.btn-outline-primary:hover {
+    background-color: hotpink!important;
+    color: white!important;
+    border-color: hotpink!important;
+}
+
+.btn-outline-primary:active:hover {
+    background-color: hotpink!important;
+    color: white!important;
+    border-color: hotpink!important;
+}
+
+.btn-outline-primary:focus {
+    background-color: hotpink!important;
+    color: white!important;
+    border-color: hotpink!important;
+}
+
+.btn-outline-primary:active:focus {
+    background-color: hotpink;
+    color: white;
     border-color: hotpink;
 }
