@@ -1,9 +1,9 @@
 .word{
-    background-color: aliceblue;
+    background-color: rgb(252, 253, 255);
 }
 
 .selected{
-    background-color: coral;
+    background-color: peachpuff;
 }
 
 
@@ -26,4 +26,35 @@
 
 .list-group-item-action{
     direction: ltr;
+}
+
+body {
+    background-color: lavenderblush;
+}
+
+header {
+    background-color: lightpink;
+}
+
+.container {
+    background-color: snow;
+}
+
+.fa-github {
+    color: black;
+  }
+
+.fa-telegram {
+    color:black;
+}
+
+.btn-primary {
+    background-color: salmon;
+    border-color: salmon;
+}
+
+.btn-outline-primary {
+    /* background-color: salmon; */
+    color: hotpink;
+    border-color: hotpink;
 }
