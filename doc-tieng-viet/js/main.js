@@ -67,6 +67,7 @@ function updateMemo() {
 }
 
 function updateMemoDisplay(word, memo) {
+    console.log('updateMemoDisplay ' +word + ' ' +memo)
     let dd = $("#unsaved-memo-list dd[data-word='" + word + "']")
     if (dd.length > 0) {
         if (memo.length == 0) {
