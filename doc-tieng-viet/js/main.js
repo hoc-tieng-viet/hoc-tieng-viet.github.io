@@ -1,10 +1,10 @@
 
-UPPER_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ]"
-LOWER_ALPHABET = "[àáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]"
-VI_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸàáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ\-\\w]"
+var UPPER_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ]"
+var LOWER_ALPHABET = "[àáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]"
+var VI_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸàáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ\-\\w]"
 
-WORD_GLOBAL = new RegExp("(" + VI_ALPHABET + "+)", "g")
-WORD = new RegExp("(" + VI_ALPHABET + "+)")
+var WORD_GLOBAL = new RegExp("(" + VI_ALPHABET + "+)", "g")
+var WORD = new RegExp("(" + VI_ALPHABET + "+)")
 
 var caseSensitive = true
 
@@ -29,7 +29,7 @@ function changeCase(c) {
 
 function selectWords(caseSensitive = true) {
     $(".selected").removeClass("selected")
-    words = []
+    let words = []
     for (let i = selectedRange[0]; i <= selectedRange[1]; ++i) {
         let span = $("span.word[data-index='" + String(i) + "']")
         span.addClass("selected")
@@ -63,7 +63,7 @@ function updateMemo() {
 }
 
 function updateMemoDisplay(word, memo) {
-    dd = $("#memo-list dd[data-word='" + word + "']")
+    let dd = $("#memo-list dd[data-word='" + word + "']")
     if (dd.length > 0) {
         if (memo.length == 0) {
             if (word in memos) {
@@ -185,7 +185,6 @@ $(() => {
 
     $("#submit-file").click(() => {
         startRead()
-
         return false
     })
 
