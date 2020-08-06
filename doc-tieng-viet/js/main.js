@@ -1,3 +1,4 @@
+'use strict';
 
 var UPPER_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ]"
 var LOWER_ALPHABET = "[àáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]"
@@ -11,6 +12,9 @@ var caseSensitive = true
 var selectedRange = [-1, -1]
 
 var thisMemo = ''
+var thisWord = ''
+
+var memoItemIndex = 0
 
 
 
@@ -46,9 +50,8 @@ function selectWords(caseSensitive = true) {
 function updateMemo() {
     let word = $("#this-word").val()
     let memo = $("#word-memo").val()
-    if (memo != thisMemo) {
+    if (word != thisWord || memo != thisMemo) {
         if (memo.length == 0) {
-            console.log(memo)
             if (word in memoDict) {
                 memos[word] = memo;
             } else if (word in memos) {
@@ -58,31 +61,43 @@ function updateMemo() {
             memos[word] = memo;
         }
         thisMemo = memo
+        thisWord = word
         updateMemoDisplay(word, memo)
     }
 }
 
 function updateMemoDisplay(word, memo) {
-    let dd = $("#memo-list dd[data-word='" + word + "']")
+    let dd = $("#unsaved-memo-list dd[data-word='" + word + "']")
     if (dd.length > 0) {
         if (memo.length == 0) {
             if (word in memos) {
                 dd.text("Memo Deleted.")
             } else {
-                dd.prev().remove()
+                let dt = dd.prev()
+                let id = dt.attr('id')
+                $('#unsaved-memo-word-list a[href="#' + id + '"]').remove()
+                dt.remove()
                 dd.remove()
             }
         } else {
             dd.text(memo)
         }
     } else {
-        dt = $("<dt></dt>")
+        let dt = $("<dt></dt>")
         dt.text(word)
         dt.attr('data-word', word)
-        dd = $("<dd></dd>")
+        let id = 'memo-item-' + String(memoItemIndex++)
+        dt.attr('id', id)
+        let dd = $("<dd></dd>")
         dd.attr('data-word', word)
         dd.text(memo.length == 0 ? "Memo Deleted." : memo)
-        $("#memo-list").append(dt).append(dd)
+        $("#unsaved-memo-list").append(dt).append(dd)
+
+        let a = $('<a></a>')
+        a.text(word)
+        a.addClass('list-group-item').addClass('list-group-item-action').addClass('text-wrap')
+        a.attr('href', '#' + id)
+        $("#unsaved-memo-word-list").append(a)
     }
 
 }
@@ -96,6 +111,7 @@ function loadMemo() {
         memo = memoDict[word]
     }
     thisMemo = memo
+    thisWord = word
     $('#word-memo').val(memo)
 }
 

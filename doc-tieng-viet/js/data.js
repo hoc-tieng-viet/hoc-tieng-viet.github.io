@@ -1,3 +1,5 @@
+'use strict';
+
 // Hashmap of unsaved memos
 var memos = {}
 

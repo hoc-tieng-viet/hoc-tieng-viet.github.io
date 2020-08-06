@@ -11,3 +11,19 @@
     display: none;
 }
 
+#unsaved-memo-list {
+    position: relative;
+    max-height: 30em;
+    overflow-y: auto;
+}
+
+#unsaved-memo-word-list {
+    position: relative;
+    max-height: 30em;
+    overflow-y: auto;
+    direction: rtl;
+}
+
+.list-group-item-action{
+    direction: ltr;
+}

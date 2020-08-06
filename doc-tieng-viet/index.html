@@ -64,12 +64,12 @@
 
         <form>
             <div class="form-group">
-                <label for="this-word">Word: 【Look up in 
-                <a href="#" id="link-vndic" target="_blank">VNDIC</a> / 
-                <a href="#" id="link-wiktionary" target="_blank">Wiktionary</a> / 
-                <a href="#" id="link-glosbe" target="_blank">Glosbe</a> / 
-                <a href="#" id="link-tratu" target="_blank">tratu</a>】
-            </label>
+                <label for="this-word">Word: 【Look up in
+                    <a href="#" id="link-vndic" target="_blank">VNDIC</a> /
+                    <a href="#" id="link-wiktionary" target="_blank">Wiktionary</a> /
+                    <a href="#" id="link-glosbe" target="_blank">Glosbe</a> /
+                    <a href="#" id="link-tratu" target="_blank">tratu</a>】
+                </label>
                 <div class="custom-control custom-switch custom-control-inline float-right">
                     <input type="checkbox" class="custom-control-input" id="case-sensitive-switch" checked>
                     <label class="custom-control-label" for="case-sensitive-switch"
@@ -91,21 +91,36 @@
         </form>
 
 
-        <div class="mb-2">
-            <button class="btn btn-primary" id="save-memos">Save Memos</button>
-            <button class="btn btn-primary" id="btn-copy-memos">Copy Memos</button>
+        <div class="mt-2">
+            <button class="btn btn-outline-primary float-left" id="save-memos">Save Memos</button>
+            <button class="btn btn-outline-success float-right" id="btn-copy-memos">Copy Memos</button>
             <button id="btn-load-new-text" class="btn btn-secondary" type="button" data-toggle="collapse"
                 data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                 aria-expanded="false" aria-label="Toggle navigation">Load New
                 Text</button>
+                <h2 class="text-center">Unsaved Memos</h2>
         </div>
 
-        <div id="memos">
+        <!-- <div id="memos">
             <h2 class="text-center">Unsaved Memos</h2>
             <dl id="memo-list">
 
             </dl>
+        </div> -->
+
+        
+        <div class="row">
+            <div class="col-3">
+                <div id="unsaved-memo-word-list" class="list-group mt-2 mb-2">
+                </div>
+            </div>
+            <div class="col-9">
+                <dl data-spy="scroll" data-target="#unsaved-memo-word-list" data-offset="0" id="unsaved-memo-list">
+                </dl>
+            </div>
         </div>
+
+
 
         <div id="memo-for-copy">
 

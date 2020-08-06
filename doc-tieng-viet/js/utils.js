@@ -1,3 +1,5 @@
+'use strict';
+
 function upperC(c) {
     if (/[a-zA-Z]/.test(c)) {
         return c.toUpperCase()
