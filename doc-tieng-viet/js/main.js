@@ -1,24 +1,5 @@
 'use strict';
 
-var UPPER_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ]"
-var LOWER_ALPHABET = "[àáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]"
-var VI_ALPHABET = "[ÀÁÂÃÒÓÔÕÙÚÈÉÊÌÍÝĂĐĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸàáâãòóôõùúèéêìíýăđĩũơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ\-\\w]"
-
-var WORD_GLOBAL = new RegExp("(" + VI_ALPHABET + "+)", "g")
-var WORD = new RegExp("(" + VI_ALPHABET + "+)")
-
-var caseSensitive = true
-
-var selectedRange = [-1, -1]
-
-var thisMemo = ''
-var thisWord = ''
-
-var memoItemIndex = 0
-
-
-
-
 function changeCase(c) {
     let word = $("#this-word").val()
     if (c == 'capitalize') {
@@ -168,6 +149,19 @@ function copyMemos() {
     ta.remove()
 }
 
+
+// function keyArrowRight(){
+//     if (selectedRange[0] == selectedRange[1]){
+//         ++selectedRange[0];
+//         ++selectedRange[1];
+//         selectWords()
+//     } else {
+//         selectedRange[0] = selectedRange[1] + 1
+//         selectedRange[1] = selectedRange[0]
+//         selectWords()
+//     }
+// }
+
 $(() => {
 
 
@@ -191,6 +185,7 @@ $(() => {
             selectedRange[1] = index;
         }
         selectWords(caseSensitive)
+        $('#word-memo').focus()
     })
 
     $("#submit-memo").click(() => {
@@ -277,10 +272,17 @@ $(() => {
     })
 
     $('#this-word').keypress((e) => {
-        if (e.code == 'Enter'){
+        if (e.code == 'Enter') {
             e.preventDefault()
+            // loadMemo()
             $('#word-memo').focus()
         }
+    })
+
+    $('#this-word').blur((e) => {
+        let input = $(e.target)
+        input.val(input.val().trim())
+        loadMemo()
     })
 
     $("#btn-copy-memos").click((e) => {
@@ -316,6 +318,19 @@ $(() => {
         $(e.target).attr('href', url)
     })
 
+    // $(document).keyup((e) => {
+    //     console.log(e.code)
+    //     if (e.ctrlKey){
+    //         switch (e.code) {
+    //             case 'ArrowRight':
+    //                 keyArrowRight();
+    //                 break;
+
+    //             default:
+    //                 break;
+    //         }
+    //     }
+    // })
 
 
 });

@@ -38,8 +38,8 @@ function upper(s) {
     return rs
 }
 
-function _capitalize(s){
-    let rs = upperC(s.charAt(0)) 
+function _capitalize(s) {
+    let rs = upperC(s.charAt(0))
     for (let i = 1; i < s.length; i++) {
         let c = s.charAt(i)
         rs += lowerC(c)
@@ -47,9 +47,9 @@ function _capitalize(s){
     return rs
 }
 
-function capitalize(word){
+function capitalize(word) {
     let parts = word.split(' ');
-    for (let i = 0; i < parts.length; ++i){
+    for (let i = 0; i < parts.length; ++i) {
         parts[i] = _capitalize(parts[i])
     }
     return parts.join(' ')
