@@ -135,14 +135,14 @@ function genReadContent(text) {
 }
 
 function copyMemos() {
-    let ta = $("<textarea></textarea");
+    let ta = $("<textarea></textarea>");
     let val = ''
     for (const key in memos) {
         if (memos[key].length > 0) {
             val += ['**', key, '** ', memos[key], '\n'].join('')
         }
     }
-    ta.val(val)
+    ta.val(val.trim())
     $('body').append(ta)
     ta.get(0).select()
     document.execCommand('copy')
@@ -315,6 +315,13 @@ $(() => {
         e.stopPropagation()
         let word = $('#this-word').val()
         let url = "http://tratu.soha.vn/dict/vn_vn/" + word
+        $(e.target).attr('href', url)
+    })
+
+    $("#link-google-translate").click((e) => {
+        e.stopPropagation()
+        let word = $('#this-word').val()
+        let url = "https://translate.google.com/?hl=vi#view=home&op=translate&sl=vi&tl=zh-CN&text=" + word
         $(e.target).attr('href', url)
     })
 
