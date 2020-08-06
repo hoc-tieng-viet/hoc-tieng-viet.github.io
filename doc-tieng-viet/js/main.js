@@ -257,5 +257,33 @@ $(() => {
         copyMemos()
     })
 
+    $("#link-vndic").click((e) => {
+        e.stopPropagation()
+        let word = $('#this-word').val()
+        let url = "http://4.vndic.net/index.php?word="+ word +"&dict=vi_cn"
+        $(e.target).attr('href', url)
+    })
+
+    $("#link-wiktionary").click((e) => {
+        e.stopPropagation()
+        let word = $('#this-word').val()
+        let url = "https://en.wiktionary.org/wiki/"+ word +"#Vietnamese"
+        $(e.target).attr('href', url)
+    })
+
+    $("#link-glosbe").click((e) => {
+        e.stopPropagation()
+        let word = $('#this-word').val()
+        let url = "https://ja.glosbe.com/vi/zh/"+ word
+        $(e.target).attr('href', url)
+    })
+
+    $("#link-tratu").click((e) => {
+        e.stopPropagation()
+        let word = $('#this-word').val()
+        let url = "http://tratu.soha.vn/dict/vn_vn/"+ word
+        $(e.target).attr('href', url)
+    })
+
 
 });
