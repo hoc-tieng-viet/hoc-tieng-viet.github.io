@@ -16,6 +16,12 @@ function saveChanges() {
         }
     }
     if (changed) {
-        download(JSON.stringify(memoDict), 'memos.json', 'text/plain');
+        try {
+            download(JSON.stringify(memoDict), 'memos.json', 'text/plain');
+            $("#save-memos").removeClass('btn-outline-primary').removeClass('btn-outline-danger').addClass('btn-outline-success')
+        } catch (error) {
+            console.log(error)   
+            $('#save-memos').removeClass('btn-outline-primary').removeClass('btn-outline-success').addClass('btn-outline-danger')
+        }
     }
 }

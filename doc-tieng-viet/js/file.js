@@ -46,8 +46,12 @@ function startRead() {
   function loaded(evt) {
     // Obtain the read file data
     let fileString = evt.target.result;
-    memoDict = JSON.parse(fileString)
-    alert('File Loaded!')
+    try {
+      memoDict = JSON.parse(fileString)
+      $('#submit-file').removeClass('btn-outline-primary').removeClass('btn-outline-danger').addClass('btn-outline-success')
+    } catch (error) {
+      $('#submit-file').removeClass('btn-outline-primary').removeClass('btn-outline-success').addClass('btn-outline-danger')
+    }
     // Handle UTF-16 file dump
     // if(utils.regexp.isChinese(fileString)) {
     //   //Chinese Characters + Name validation
@@ -62,5 +66,6 @@ function startRead() {
     if(evt.target.error.name == "NotReadableError") {
       // The file could not be read
       console.log("The file could not be read")
+      $('#submit-file').removeClass('btn-outline-primary').removeClass('btn-outline-success').addClass('btn-outline-danger')
     }
   }
