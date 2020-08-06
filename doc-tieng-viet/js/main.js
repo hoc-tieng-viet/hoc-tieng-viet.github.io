@@ -50,7 +50,7 @@ function selectWords(caseSensitive = true) {
 function updateMemo() {
     let word = $("#this-word").val()
     let memo = $("#word-memo").val()
-    if (word != thisWord || memo != thisMemo) {
+    if (word.length > 0 && (word != thisWord || memo != thisMemo)) {
         if (memo.length == 0) {
             if (word in memoDict) {
                 memos[word] = memo;
@@ -263,8 +263,24 @@ $(() => {
         e.stopPropagation()
     })
 
+    $('#word-memo').keypress((e) => {
+        if (e.code == 'Enter') {
+            if (e.ctrlKey) {
+                e.preventDefault()
+                $("#submit-memo").click()
+            }
+        }
+    })
+
     $('#this-word').click((e) => {
         e.stopPropagation()
+    })
+
+    $('#this-word').keypress((e) => {
+        if (e.code == 'Enter'){
+            e.preventDefault()
+            $('#word-memo').focus()
+        }
     })
 
     $("#btn-copy-memos").click((e) => {
@@ -275,30 +291,31 @@ $(() => {
     $("#link-vndic").click((e) => {
         e.stopPropagation()
         let word = $('#this-word').val()
-        let url = "http://4.vndic.net/index.php?word="+ word +"&dict=vi_cn"
+        let url = "http://4.vndic.net/index.php?word=" + word + "&dict=vi_cn"
         $(e.target).attr('href', url)
     })
 
     $("#link-wiktionary").click((e) => {
         e.stopPropagation()
         let word = $('#this-word').val()
-        let url = "https://en.wiktionary.org/wiki/"+ word +"#Vietnamese"
+        let url = "https://en.wiktionary.org/wiki/" + word + "#Vietnamese"
         $(e.target).attr('href', url)
     })
 
     $("#link-glosbe").click((e) => {
         e.stopPropagation()
         let word = $('#this-word').val()
-        let url = "https://ja.glosbe.com/vi/zh/"+ word
+        let url = "https://ja.glosbe.com/vi/zh/" + word
         $(e.target).attr('href', url)
     })
 
     $("#link-tratu").click((e) => {
         e.stopPropagation()
         let word = $('#this-word').val()
-        let url = "http://tratu.soha.vn/dict/vn_vn/"+ word
+        let url = "http://tratu.soha.vn/dict/vn_vn/" + word
         $(e.target).attr('href', url)
     })
+
 
 
 });
