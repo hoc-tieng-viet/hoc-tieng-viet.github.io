@@ -13,13 +13,13 @@
 
 #unsaved-memo-list {
     position: relative;
-    max-height: 30em;
+    max-height: 15em;
     overflow-y: auto;
 }
 
 #unsaved-memo-word-list {
     position: relative;
-    max-height: 30em;
+    max-height: 15em;
     overflow-y: auto;
     direction: rtl;
 }
@@ -164,5 +164,14 @@ a {
     border-color: lightsalmon!important;
     /* box-shadow:0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px lightsalmon!important; */
     background-color: lightsalmon!important;
+}
+
+div#text-to-read div{
+    max-height: 30em;
+    overflow-y: auto;
+}
+
+div#text-to-read div p{
+    font-size: 1.4rem;
 }
 
