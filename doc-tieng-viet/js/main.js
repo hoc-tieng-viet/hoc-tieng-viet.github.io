@@ -188,6 +188,24 @@ $(() => {
         $('#word-memo').focus()
     })
 
+    $(document).on('click', '#unsaved-memo-word-list a', (e) => {
+        let word = $(e.target).text()
+        $('#this-word').val(word)
+        loadMemo()
+    })
+
+    $(document).on('click', '#unsaved-memo-list dt', (e) => {
+        let word = $(e.target).text()
+        $('#this-word').val(word)
+        loadMemo()
+    })
+
+    $(document).on('click', '#unsaved-memo-list dd', (e) => {
+        let word = $(e.target).attr('data-word')
+        $('#this-word').val(word)
+        loadMemo()
+    })
+
     $("#submit-memo").click(() => {
         updateMemo()
         return false
