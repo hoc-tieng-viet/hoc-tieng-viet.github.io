@@ -41,11 +41,15 @@ header {
 }
 
 .fa-github {
-    color: black;
+    color: whitesmoke;
   }
 
 .fa-telegram {
-    color:black;
+    color:whitesmoke;
+}
+
+.fa-twitter {
+    color:whitesmoke;
 }
 
 .btn {
@@ -87,36 +91,50 @@ header {
 
 
 .btn-outline-primary {
-    color: hotpink!important;
-    border-color: hotpink!important;
+    color: darksalmon!important;
+    border-color: darksalmon!important;
 }
 
 .btn-outline-primary:active {
-    background-color: hotpink!important;
+    background-color: darksalmon!important;
     color: white!important;
-    border-color: hotpink!important;
+    border-color: darksalmon!important;
 }
 
 .btn-outline-primary:hover {
-    background-color: hotpink!important;
+    background-color: darksalmon!important;
     color: white!important;
-    border-color: hotpink!important;
+    border-color: darksalmon!important;
 }
 
 .btn-outline-primary:active:hover {
-    background-color: hotpink!important;
+    background-color: darksalmon!important;
     color: white!important;
-    border-color: hotpink!important;
+    border-color: darksalmon!important;
 }
 
 .btn-outline-primary:focus {
-    background-color: hotpink!important;
+    background-color: darksalmon!important;
     color: white!important;
-    border-color: hotpink!important;
+    border-color: darksalmon!important;
 }
 
 .btn-outline-primary:active:focus {
-    background-color: hotpink;
+    background-color: darksalmon;
     color: white;
-    border-color: hotpink;
+    border-color: darksalmon;
+}
+
+.list-group-item.active {
+    background-color: lightsalmon!important;
+    border-color: lightsalmon!important;
+}
+
+a {
+    color: lightcoral;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: lightcoral;
+    background-color: lightcoral;
 }
