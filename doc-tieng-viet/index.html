@@ -32,7 +32,7 @@
     </header>
 
     <div class="container pt-3">
-
+        
         <div class="collapse show" id="navbarToggleExternalContent">
             <div class="form-group">
                 <label for="file"><b>Step 1</b> - Load the memo file (Optional)
@@ -51,6 +51,7 @@
                 <textarea class="form-control" id="input-text" name="input-text"></textarea>
             </div>
             <div class="text-right mb-3">
+                <button type="button" class="btn btn-secondary" id="btn-clear-input-text">Clear</button>
                 <button type="button" class="btn btn-primary" id="submit-input-text">Start Reading</button>
                 <button id="btn-hide" class=" btn btn-secondary" type="button" data-toggle="collapse"
                     data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
@@ -63,7 +64,6 @@
         <div id="text-to-read"></div>
 
         <div>
-
             <div class="form-group">
                 <label for="this-word">Word: 【Look up in
                     <a href="#" id="link-vndic" target="_blank">VNDIC</a> /
@@ -89,6 +89,7 @@
                 <textarea class="form-control" id="word-memo" name="word-memo" rows="1"></textarea>
             </div>
             <div class="text-right">
+                <button type="button" class="btn btn-secondary mb-2" id="btn-clear-memo">Clear</button>
                 <button type="button" class="btn btn-primary mb-2" id="submit-memo" name="submit-memo">Memo</button>
             </div>
         </div>

@@ -48,13 +48,13 @@ function updateMemo() {
 }
 
 function updateMemoDisplay(word, memo) {
-    let dd = $("#unsaved-memo-list dd[data-word='" + word + "']")
-    if (dd.length > 0) {
+    let dt = $('#unsaved-memo-list dt[data-word="' + word + '"]')
+    if (dt.length > 0) {
+        let dd = dt.next()
         if (memo.length == 0) {
             if (word in memos) {
                 dd.text("Memo Deleted.")
             } else {
-                let dt = dd.prev()
                 let id = dt.attr('id')
                 $('#unsaved-memo-word-list a[href="#' + id + '"]').remove()
                 dt.remove()
@@ -64,23 +64,24 @@ function updateMemoDisplay(word, memo) {
             dd.text(memo)
         }
     } else {
-        let dt = $("<dt></dt>")
-        dt.text(word)
-        dt.attr('data-word', word)
-        let id = 'memo-item-' + String(memoItemIndex++)
-        dt.attr('id', id)
-        let dd = $("<dd></dd>")
-        dd.attr('data-word', word)
-        dd.text(memo.length == 0 ? "Memo Deleted." : memo)
-        $("#unsaved-memo-list").append(dt).append(dd)
-
-        let a = $('<a></a>')
-        a.text(word)
-        a.addClass('list-group-item').addClass('list-group-item-action').addClass('text-wrap')
-        a.attr('href', '#' + id)
-        $("#unsaved-memo-word-list").append(a)
+        appendNewMemo(word, memo)
     }
+}
 
+function appendNewMemo(w, m) {
+    let id = 'memo-item-' + String(memoItemIndex++)
+    let dt = $("<dt></dt>")
+    dt.text(w)
+      .attr('data-word', w)
+      .attr('id', id)
+    let dd = $("<dd></dd>")
+    dd.text(m.length == 0 ? "Memo Deleted." : m)
+    $("#unsaved-memo-list").append(dt).append(dd)
+    let a = $('<a></a>')
+    a.text(w)
+     .addClass('list-group-item').addClass('list-group-item-action').addClass('text-wrap')
+     .attr('href', '#' + id)
+     .appendTo($("#unsaved-memo-word-list"))
 }
 
 function loadMemo() {
@@ -111,9 +112,7 @@ function splitWords(text) {
     return text.split(WORD_GLOBAL)
 }
 
-function isWord(word) {
-    return WORD.test(word)
-}
+
 
 function genReadContent(text) {
     let words = splitWords(text)
@@ -202,7 +201,7 @@ $(() => {
     })
 
     $(document).on('click', '#unsaved-memo-list dd', (e) => {
-        let word = $(e.target).attr('data-word')
+        let word = $(e.target).prev().text()
         $('#this-word').val(word)
         loadMemo()
     })
@@ -293,7 +292,6 @@ $(() => {
     $('#this-word').keypress((e) => {
         if (e.code == 'Enter') {
             e.preventDefault()
-            // loadMemo()
             $('#word-memo').focus()
         }
     })
@@ -361,5 +359,12 @@ $(() => {
     $(".btn").click((e) => {
         $(e.target).blur()
     })
+    
+    $('#btn-clear-input-text').click((e) => {
+        $('#input-text').val('')
+    })
 
+    $('#btn-clear-memo').click((e) => {
+        $('#word-memo').val('')
+    })
 });

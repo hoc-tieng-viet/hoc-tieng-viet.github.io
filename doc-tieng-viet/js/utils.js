@@ -67,3 +67,7 @@ function standardize(s) {
     }
     return s
 }
+
+function isWord(word) {
+    return WORD.test(word)
+}
