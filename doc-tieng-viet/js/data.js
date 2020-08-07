@@ -17,7 +17,7 @@ function saveChanges() {
     }
     if (changed) {
         try {
-            download(JSON.stringify(memoDict), 'memos.json', 'text/plain');
+            download(JSON.stringify(memoDict, null, 2), 'memos.json', 'text/plain');
             $("#save-memos").removeClass('btn-outline-primary').removeClass('btn-outline-danger').addClass('btn-outline-success')
         } catch (error) {
             console.log(error)
