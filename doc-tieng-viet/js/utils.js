@@ -55,6 +55,15 @@ function capitalize(word) {
     return parts.join(' ')
 }
 
-function isNumber(s){
+function isNumber(s) {
     return /^[0-9]+$/.test(s)
+}
+
+function standardize(s) {
+    let oldPatterns = ["óa", "Óa", "òa", "Òa", "ọa", "Ọa", "ỏa", "Ỏa", "õa", "Õa", "óe", "Óe", "òe", "Òe", "ọe", "Ọe", "ỏe", "Ỏe", "õe", "Õe", "úy", "Úy", "ùy", "Ùy", "ũy", "Ũy", "ủy", "Ủy", "ụy", "Ụy"]
+    let newPatterns = ["oá", "Oá", "oà", "Oà", "oạ", "Oạ", "oả", "Oả", "oã", "Oã", "oé", "Oé", "oè", "Oè", "oẹ", "Oẹ", "oẻ", "Oẻ", "oẽ", "Oẽ", "uý", "Uý", "uỳ", "Uỳ", "uỹ", "Uỹ", "uỷ", "Uỷ", "uỵ", "Uỵ"]
+    for (let i = 0; i < newPatterns.length; ++i) {
+        s = s.replace(oldPatterns[i], newPatterns[i])
+    }
+    return s
 }

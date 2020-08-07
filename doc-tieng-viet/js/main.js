@@ -99,6 +99,7 @@ function loadMemo() {
 function newSpan(text, index) {
     let span = $("<span></span>")
     if (!isNumber(text) && isWord(text)) {
+        text = standardize(text)
         span.addClass("word")
     }
     span.attr("data-index", index)
@@ -299,7 +300,7 @@ $(() => {
 
     $('#this-word').blur((e) => {
         let input = $(e.target)
-        input.val(input.val().trim())
+        input.val(standardize(input.val().trim()))
         loadMemo()
     })
 
