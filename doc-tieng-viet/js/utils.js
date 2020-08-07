@@ -54,3 +54,7 @@ function capitalize(word) {
     }
     return parts.join(' ')
 }
+
+function isNumber(s){
+    return /^[0-9]+$/.test(s)
+}

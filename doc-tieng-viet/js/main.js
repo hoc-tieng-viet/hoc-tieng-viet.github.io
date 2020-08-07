@@ -98,7 +98,7 @@ function loadMemo() {
 
 function newSpan(text, index) {
     let span = $("<span></span>")
-    if (isWord(text)) {
+    if (!isNumber(text) && isWord(text)) {
         span.addClass("word")
     }
     span.attr("data-index", index)
