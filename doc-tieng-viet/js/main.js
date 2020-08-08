@@ -109,10 +109,17 @@ function newSpan(text, index) {
 }
 
 function splitWords(text) {
-    return text.split(WORD_GLOBAL)
+    let lines = splitLines(text)
+    let words = []
+    for (const line of lines){
+        words = words.concat(line.split(WORD_GLOBAL))
+    }
+    return words
 }
 
-
+function splitLines(text) {
+    return text.split(/(\n)/)
+}
 
 function genReadContent(text) {
     let words = splitWords(text)
